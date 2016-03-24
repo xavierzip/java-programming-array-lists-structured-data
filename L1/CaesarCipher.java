@@ -50,6 +50,6 @@ public class CaesarCipher {
     public void testCaesar(){
         FileResource fr = new FileResource();
         String message = fr.asString();
-        System.out.println(encryptTwoKeys(message, 8, 21));
+        System.out.println(encryptTwoKeys(message, 14, 24));
     }
 }

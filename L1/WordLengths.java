@@ -11,23 +11,26 @@ public class WordLengths {
     public int[] countWordLengths(FileResource resource, int[] counts){
         for(String word : resource.words()){
             int count = word.length();
+            System.out.println(word);
             if(!Character.isLetter(word.charAt(0))){
                 count--;
             }
             if(!Character.isLetter(word.charAt(word.length()-1))){
                 count--;
             }
-            if(count>counts.length){
+            if(count>=counts.length){
                 counts[counts.length-1]++;
+            }else if(count < 0){
+                counts[0]++;
             }else{
                 counts[count]++;
             }
-            System.out.println(word+":"+count);
+            //System.out.println(word+":"+count);
         }
         return counts;
     }
     public void testCountWordLengths(){
-        FileResource resource = new FileResource("data/smallHamlet.txt");
+        FileResource resource = new FileResource("data/manywords.txt");
         int[] counts = new int[31];
         countWordLengths(resource, counts);
         for(int i=0;i<counts.length;i++){
